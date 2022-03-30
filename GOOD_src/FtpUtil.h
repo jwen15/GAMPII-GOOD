@@ -93,7 +93,44 @@ private:
     void GetHrObsMgex(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : GetDailyObsCut - download Curtin University of Technology (CUT) RINEX daily observation (30s) files (long name "crx") according to 'site.list' file
+    * @brief   : GetDailyObsIgm - to download IGS (short name "d") and MGEX RINEX daily observation (30s) files (long name "crx")
+    *              simutaneously according to 'site.list' file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetDailyObsIgm(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetHourlyObsIgm  - to download IGS (short name "d") and MGEX RINEX hourly observation (30s) files (long name "crx")
+    *              simutaneously according to 'site.list' file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetHourlyObsIgm(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetHrObsIgm - to download IGS (short name "d") and MGEX RINEX high-rate observation (1s) files (long name "crx")
+    *              simutaneously according to 'site.list' file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetHrObsIgm(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetDailyObsCut - download Curtin University of Technology (CUT) RINEX daily observation (30s) files (long name "crx") 
+    *              according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -104,7 +141,8 @@ private:
     void GetDailyObsCut(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : GetDailyObsGa - download Geoscience Australia (GA) RINEX daily observation (30s) files (long name "crx") according to 'site.list' file
+    * @brief   : GetDailyObsGa - download Geoscience Australia (GA) RINEX daily observation (30s) files (long name "crx") 
+    *              according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -115,7 +153,8 @@ private:
     void GetDailyObsGa(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : GetHourlyObsGa - download Geoscience Australia (GA) RINEX hourly observation (30s) files (long name "crx") according to 'site.list' file
+    * @brief   : GetHourlyObsGa - download Geoscience Australia (GA) RINEX hourly observation (30s) files (long name "crx") 
+    *              according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -126,7 +165,8 @@ private:
     void GetHourlyObsGa(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : GetHrObsGa - download Geoscience Australia (GA) RINEX high-rate observation (1s) files (long name "crx") according to 'site.list' file
+    * @brief   : GetHrObsGa - download Geoscience Australia (GA) RINEX high-rate observation (1s) files (long name "crx") 
+                   according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -137,7 +177,8 @@ private:
     void GetHrObsGa(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : Get30sObsHk - download Hong Kong CORS RINEX daily observation (30s) files (long name "crx") according to 'site.list' file
+    * @brief   : Get30sObsHk - download Hong Kong CORS RINEX daily observation (30s) files (long name "crx") 
+                   according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -148,7 +189,8 @@ private:
     void Get30sObsHk(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : Get5sObsHk - download Hong Kong CORS RINEX daily observation (5s) files (long name "crx") according to 'site.list' file
+    * @brief   : Get5sObsHk - download Hong Kong CORS RINEX daily observation (5s) files (long name "crx") 
+                   according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -159,7 +201,8 @@ private:
     void Get5sObsHk(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : Get1sObsHk - download Hong Kong CORS RINEX daily observation (1s) files (long name "crx") according to 'site.list' file
+    * @brief   : Get1sObsHk - download Hong Kong CORS RINEX daily observation (1s) files (long name "crx") 
+                   according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -170,7 +213,8 @@ private:
     void Get1sObsHk(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : GetDailyObsNgs - download NGS/NOAA CORS RINEX daily observation (30s) files (short name "d") according to 'site.list' file
+    * @brief   : GetDailyObsNgs - download NGS/NOAA CORS RINEX daily observation (30s) files (short name "d") 
+                   according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -181,7 +225,8 @@ private:
     void GetDailyObsNgs(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
-    * @brief   : GetDailyObsEpn - download EUREF Permanent Network (EPN) RINEX daily observation (30s) files (long name 'crx' and short name "d") according to 'site.list' file
+    * @brief   : GetDailyObsEpn - download EUREF Permanent Network (EPN) RINEX daily observation (30s) files 
+                   (long name 'crx' and short name "d") according to 'site.list' file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
     * @param[I]: fopt (FTP options)
@@ -190,6 +235,43 @@ private:
     * @note    :
     **/
     void GetDailyObsEpn(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetDailyObsPbo2 - to download Plate Boundary Observatory (PBO) RINEX daily observation (15s) files
+                   (RINEX version 2.xx, short name "d") according to 'site.list' file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetDailyObsPbo2(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetDailyObsPbo3 - to download Plate Boundary Observatory (PBO) RINEX daily observation (15s) files
+                   (RINEX version 3.xx, long name "crx") according to 'site.list' file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetDailyObsPbo3(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetDailyObsPbo5 - to download Plate Boundary Observatory (PBO) RINEX daily observation (15s) files
+    *              (taking the union of RINEX version 3.xx, long name "crx" and RINEX version 2.xx, short name "d")
+    *              according to 'site.list' file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetDailyObsPbo5(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
     * @brief   : GetNav - download daily GPS, GLONASS and mixed RINEX broadcast ephemeris files
@@ -205,14 +287,15 @@ private:
     /**
     * @brief   : GetOrbClk - download IGS/MGEX precise orbit and clock files
     * @param[I]: ts (start time)
-    * @param[I]: dir (data directory)
-    * @param[I]: mode (=1:sp3 downloaded; =2:clk downloadeded)
+    * @param[I]: dirs (orbit and clock directories)
+    * @param[I]: prodType (1:real-time products; 2:ultra-rapid; 3:rapid; 4: IGS final; 5: MGEX final)
+    * @param[I]: ac (analysis center, i.e., 'igs', 'cod', et al.)
     * @param[I]: fopt (FTP options)
     * @param[O]: none
     * @return  : none
     * @note    :
     **/
-    void GetOrbClk(gtime_t ts, const char dir[], int mode, const ftpopt_t *fopt);
+    void GetOrbClk(gtime_t ts, std::vector<string> dirs, int prodType, string ac, const ftpopt_t *fopt);
 
     /**
     * @brief   : GetEop - download earth rotation parameter files
@@ -226,6 +309,39 @@ private:
     void GetEop(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
+    * @brief   : GetObx - to download ORBEX (ORBit EXchange format) files
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetObx(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetDsb - to download CODE DCB or MGEX daily DSB (i.e., from CAS) file
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetDsb(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
+    * @brief   : GetOsb - to download CNES real-time or MGEX final OSB files
+    * @param[I]: ts (start time)
+    * @param[I]: dir (data directory)
+    * @param[I]: fopt (FTP options)
+    * @param[O]: none
+    * @return  : none
+    * @note    :
+    **/
+    void GetOsb(gtime_t ts, const char dir[], const ftpopt_t *fopt);
+
+    /**
     * @brief   : GetSnx - download IGS weekly SINEX file
     * @param[I]: ts (start time)
     * @param[I]: dir (data directory)
@@ -235,29 +351,6 @@ private:
     * @note    :
     **/
     void GetSnx(gtime_t ts, const char dir[], const ftpopt_t *fopt);
-
-    /**
-    * @brief   : GetDcbMgex - download MGEX daily DCB file
-    * @param[I]: ts (start time)
-    * @param[I]: dir (data directory)
-    * @param[I]: fopt (FTP options)
-    * @param[O]: none
-    * @return  : none
-    * @note    :
-    **/
-    void GetDcbMgex(gtime_t ts, const char dir[], const ftpopt_t *fopt);
-
-    /**
-    * @brief   : GetDcbCode - download daily P1-P2, P1-C1, and P2-C2 DCB files from CODE
-    * @param[I]: ts (start time)
-    * @param[I]: dir (data directory)
-    * @param[I]: dType (DCB type, i.e., "P1P2", "P1C1", or "P2C2")
-    * @param[I]: fopt (FTP options)
-    * @param[O]: none
-    * @return  : none
-    * @note    :
-    **/
-    void GetDcbCode(gtime_t ts, const char dir[], const char dType[], const ftpopt_t *fopt);
 
     /**
     * @brief   : GetIono - download daily GIM file
@@ -291,28 +384,6 @@ private:
     * @note    :
     **/
     void GetTrop(gtime_t ts, const char dir[], const ftpopt_t *fopt);
-
-    /**
-    * @brief   : GetRtOrbClkCNT - download real-time precise orbit and clock products from CNES offline files
-    * @param[I]: ts (start time)
-    * @param[I]: dir (data directory)
-    * @param[I]: mode (=1:sp3 downloaded; =2:clk downloadeded)
-    * @param[O]: none
-    * @return  : none
-    * @note    :
-    **/
-    void GetRtOrbClkCNT(gtime_t ts, const char dir[], int mode, const ftpopt_t *fopt);
-
-    /**
-    * @brief   : GetRtBiasCNT - download real-time code and phase bias products from CNES offline files
-    * @param[I]: ts (start time)
-    * @param[I]: dir (data directory)
-    * @param[I]: fopt (FTP options)
-    * @param[O]: none
-    * @return  : none
-    * @note    :
-    **/
-    void GetRtBiasCNT(gtime_t ts, const char dir[], const ftpopt_t *fopt);
 
     /**
     * @brief   : GetAntexIGS - download ANTEX file from IGS

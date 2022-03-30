@@ -1,12 +1,11 @@
 /*------------------------------------------------------------------------------
 * TimeUtil.cpp : time conversion functions
 *
-* Copyright (C) 2020-2099 by SpAtial SurveyIng and Navigation (SASIN), all rights reserved.
-*    This file is part of GAMP II - GOOD (Gnss Observation and Other data Downloading) tool
+* Copyright (C) 2020-2099 by SpAtial SurveyIng and Navigation (SASIN) group, all rights reserved.
+*    This file is part of GAMP II - GOOD (Gnss Observations and prOducts Downloader) toolkit
 *
 * References:
 *    
-*
 * history : 2020/08/23 1.0  new (by Feng Zhou)
 *           2020/09/12      fix a bug (missing t1 = t0) in TimeAdd (by Yuze Yang and Feng Zhou)
 *           2020/10/25      add VectorXd type for date (by Feng Zhou)

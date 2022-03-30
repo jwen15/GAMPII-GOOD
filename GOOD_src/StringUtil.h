@@ -110,13 +110,21 @@ public:
     void StrMid(char *dst, const char *src, int nPos, int nCount);
 
     /**
-    * @brief     : TrimSpace - trim head and tail space of the string
+    * @brief     : TrimSpace4String - trim head and tail space of the string
+    * @param[I/O]: s (input string with head and tail space; output string without head and tail space)
+    * @return    : none
+    * @note      :
+    **/
+    void TrimSpace4String(string &s);
+
+    /**
+    * @brief     : TrimSpace4Char - trim head and tail space of the string
     * @param[I/O]: dstsrc (destination string (may be with head and tail space) and
     *              source string (without head and tail space))
     * @return    : none
     * @note      :
     **/
-    void TrimSpace(char *dstsrc);
+    void TrimSpace4Char(char *dstsrc);
 
     /**
     * @brief     : CutFilePathSep -
@@ -135,4 +143,14 @@ public:
     * @note    :
     **/
     void GetFilesAll(string dir, string suffix, vector<string> &files);
+
+    /**
+    * @brief   : GetSubStr - get sub-string in a vector from a string
+    * @param[I]: str (string)
+    * @param[I]: sep (delimiter)
+    * @param[O]: subStrs (sub strings)
+    * @return  : none
+    * @note    :
+    **/
+    void GetSubStr(string str, string sep, vector<string> &subStrs);
 };

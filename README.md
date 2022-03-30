@@ -1,25 +1,27 @@
-# GAMP II - GOOD, version 1.8
+# GAMP II - GOOD, version 2.0
 GAMP II - GOOD (Gnss Observations and prOducts Downloader) is a powerful and easy-to-use lightweight GNSS observations and product downloading toolkit, which is developed by the SASIN (SpAtial SurveyIng and Navigation) group at Shandong University of Science and Technology (SDUST). The current version is 1.8, which is more stable. Hence, we decide to make it available for global GNSS users, and we are convinced that more and more GNSS users will benefit from GAMP II - GOOD. The source codes of GAMP II - GOOD is now available at GitHub (https://github.com/zhouforme0318/GAMPII-GOOD). We dedicated to create a more powerful GNSS data downloading tool, which can allow every GNSSer to completely get rid of the trouble in GNSS data and product downloading.
 # Features
 Main feature of GAMP II - GOOD are various GNSS observations and products downloading, i.e., 
 - IGS observation (RINEX version 2.xx, short name 'd')
 - MGEX observation (RINEX version 3.xx, long name 'crx')
+- the union of IGS and MGEX (IGS + MGEX, while the priority of MGEX sites is higher) observation with respect to the site name
 - Curtin University of Technology (CUT) observation (RINEX version 3.xx, long name 'crx')
 - Geoscience Australia (GA) observation (RINEX version 3.xx, long name 'crx')
 - Hong Kong CORS observation (RINEX version 3.xx, long name 'crx')
 - NGS/NOAA CORS observation (RINEX version 2.xx, short name 'd')
 - EUREF Permanent Network (EPN) observation (RINEX version 3.xx, long name 'crx')
-- various type of broadcast ephemeris
-- various types of IGS and MGEX final precise orbit 'sp3' and precise clock 'clk' (i.e., "cod", "emr", "esa", "gfz", "grg", "igs", "jpl", "mit", "com", "gbm", "grm", "wum")
-- various types of ultra-rapid (i.e., from ESA, GFZ, IGS, WHU) and rapid (i.e., from CODE, NRCan, ESA, GFZ, IGS) orbit and clock products
-- earth rotation parameter
+- Plate Boundary Observatory (PBO) observation (RINEX version 2.xx, short name "d")
+- Plate Boundary Observatory (PBO) observation (RINEX version 3.xx, long name "crx")
+- Plate Boundary Observatory (PBO) observation (taking the union of pbo2 and pbo3 (pbo2 + pbo3), while the priority of pbo3 sites is higher)
+- various type of broadcast ephemeris in RINEX 3.XX and RINEX 4.xx format
+- various types of IGS, MGEX and other analysis center final/rapid/ultra-rapid/real-time precise orbit and precise clock (i.e., IGS final: "cod", "emr", "esa", "gfz", "grg", "igs", "jpl", "mit", "all", "cod+igs", "cod+gfz+igs", ...; MGEX final: "cod_m", "gfz_m", "grg_m", "whu_m", "all_m", "cod_m+gfz_m", "grg_m+whu_m", ...; rapid: "cod_r", "emr_r", "esa_r", "gfz_r", "igs_r"; ultra-rapid: "esa_u", "gfz_u", "igs_u", "whu_u"; real-time: "cnt")
+- various final/ultra-rapid earth rotation parameter
 - IGS weekly SINEX solution
-- CODE and/or MGEX differential code bias (DCB)
+- CODE and/or MGEX differential code/signal bias (DCB/DSB)
+- various final/real-time code observable-specific signal bias (OSB)
 - global ionosphere map (GIM)
 - rate of TEC index (ROTI)
 - CODE and/or IGS tropospheric product
-- real-time precise orbit and clock products from CNES offline files
-- real-time code and phase bias products from CNES offline files
 - ANTEX format antenna phase center correction  
 But it is not limited to these, users can use the source code to expand its functionalities according to their needs.
 # Version
@@ -53,6 +55,10 @@ But it is not limited to these, users can use the source code to expand its func
   2021/09/04 add the option for NGS/NOAA CORS (from Amazon Web Services (AWS)) and EUREF Permanent Network (EPN) observation downloading (by Feng Zhou @ SDUST)  
   2021/09/05 fix the bug of broadcast ephemeris downloading via WHU FTP before and after 2020 (by Feng Zhou @ SDUST and Zan Liu @ CUMT)  
   2021/09/06 modify the setting of directories of GNSS observations and products in configure file to make them more elastic (by Feng Zhou @ SDUST and Caoming Fan @ SDU)
+- Vers. 1.9  
+  Please refer to the header component of FtpUtil.cpp
+- Vers. 2.0  
+  Please refer to the header component of FtpUtil.cpp
 # Install
 The source codes are written in ANSI C/C++, which are cross-platform and can be compiled on Windows, Linux/Unix and Mac OS. NOTE: Double-clicking the executable program does not work for data downloading. The correct way is to type ‘run_GAMP_GOOD  gamp_good.cfg’ on the terminal.
 # How to use it
@@ -69,4 +75,4 @@ If some GNSS data cannot be successfully downloaded, check your network first. T
 - the suggestion of adding the option of various ultra-rapid (i.e., from ESA, GFZ, IGS, WHU) and rapid (i.e., from CODE, NRCan, ESA, GFZ, IGS) orbit and clock products downloading is provided by Sermet Ogutcu @ Necmettin Erbakan University
 - the suggestion of modifying the setting of directories of GNSS observations and products in configure file is provided by Caoming Fan @ SDU
 # License
-Copyright (C) 2021 by SpAtial SurveyIng and Navigation (SASIN) Group at Shandong University of Science and Technology (SDUST), all rights reserved.
+Copyright (C) 2022 by SpAtial SurveyIng and Navigation (SASIN) Group at Shandong University of Science and Technology (SDUST), all rights reserved.

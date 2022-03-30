@@ -12,7 +12,7 @@
 int main(int argc, char * argv[])
 {
 #ifdef _WIN32  /* for Windows */
-    /* char cfgFile[1000] = "D:\\data\\gamp_good.cfg"; */
+    //char cfgFile[1000] = "E:\\data\\gamp_GOOD.cfg";
     char *cfgFile;
     if (argc == 1)
     {
@@ -20,11 +20,11 @@ int main(int argc, char * argv[])
         cout << "*** WARNING: The input command-line parameter indicating configure file is lost, please check it!" << endl;
         cout << endl << endl;
         cout << "------------------------------ Information of GAMP II - GOOD ------------------------------" << endl;
-        cout << "*** INFO: The current version of GAMP II - GOOD is 1.8" << endl;
+        cout << "*** INFO: The current version of GAMP II - GOOD is 2.0" << endl;
         cout << "*** INFO: GOOD is short for Gnss Observations and prOducts Downloader" << endl;
         cout << "*** INFO: GOOD is developed by SpAtial SurveyIng and Navigation (SASIN) group "
             "at Shandong University of Science and Technology (SDUST)" << endl;
-        cout << "*** INFO: Copyright (C) 2020-2099 by SASIN, all rights reserved" << endl;
+        cout << "*** INFO: Copyright (C) 2020-2099 by SASIN, all rights reserved" << endl << endl;
 
         return 0;
     }
@@ -37,11 +37,11 @@ int main(int argc, char * argv[])
         cout << "*** WARNING: The input command-line parameter indicating configure file is lost, please check it!" << endl;
         cout << endl << endl;
         cout << "------------------------------ Information of GAMP II - GOOD ------------------------------" << endl;
-        cout << "*** INFO: The current version of GAMP II - GOOD is 1.8" << endl;
+        cout << "*** INFO: The current version of GAMP II - GOOD is 2.0" << endl;
         cout << "*** INFO: GOOD is short for Gnss Observations and prOducts Downloader" << endl;
         cout << "*** INFO: GOOD is developed by SpAtial SurveyIng and Navigation (SASIN) group "
             "at Shandong University of Science and Technology (SDUST)" << endl;
-        cout << "*** INFO: Copyright (C) 2020-2099 by SASIN, all rights reserved" << endl;
+        cout << "*** INFO: Copyright (C) 2020-2099 by SASIN, all rights reserved" << endl << endl;
 
         return 0;
     }

@@ -1,12 +1,11 @@
 /*------------------------------------------------------------------------------
 * StringUtil.cpp : string functions
 *
-* Copyright (C) 2020-2099 by SpAtial SurveyIng and Navigation (SASIN), all rights reserved.
-*    This file is part of GAMP II - GOOD (Gnss Observation and Other data Downloading) tool
+* Copyright (C) 2020-2099 by SpAtial SurveyIng and Navigation (SASIN) group, all rights reserved.
+*    This file is part of GAMP II - GOOD (Gnss Observations and prOducts Downloader) toolkit
 *
 * References:
 *    
-*
 * history : 2020/09/25 1.0  new (by Feng Zhou)
 *-----------------------------------------------------------------------------*/
 #include "Good.h"
@@ -176,13 +175,27 @@ void StringUtil::StrMid(char *dst, const char *src, int nPos, int nCount)
 } /* end of StrMid */
 
 /**
-* @brief     : TrimSpace - trim head and tail space of the string
+* @brief     : TrimSpace4String - trim head and tail space of the string
+* @param[I/O]: s (input string with head and tail space; output string without head and tail space)
+* @return    : none
+* @note      :
+**/
+void StringUtil::TrimSpace4String(string &s)
+{
+    if (s.empty()) return;
+
+    s.erase(0, s.find_first_not_of(" "));
+    s.erase(s.find_last_not_of(" ") + 1);
+} /* end of TrimSpace4String */
+
+/**
+* @brief     : TrimSpace4Char - trim head and tail space of the string
 * @param[I/O]: dstsrc (destination string (may be with head and tail space) and 
 *              source string (without head and tail space))
 * @return    : none
 * @note      :
 **/
-void StringUtil::TrimSpace(char *dstsrc)
+void StringUtil::TrimSpace4Char(char *dstsrc)
 {
     int len = (int)strlen(dstsrc);
     char str[MAXCHARS + 1];
@@ -216,7 +229,7 @@ void StringUtil::TrimSpace(char *dstsrc)
     else *(str + pe + 1) = '\0';
 
     SetStr(dstsrc, str + ps, (int)strlen(str + ps) + 1);
-} /* end of TrimSpace */
+} /* end of TrimSpace4Char */
 
 /**
 * @brief     : CutFilePathSep - 
@@ -289,3 +302,26 @@ void StringUtil::GetFilesAll(string dir, string suffix, vector<string> &files)
 #endif
     std::system(cmd.c_str());
 } /* end of GetFilesAll */
+
+/**
+* @brief   : GetSubStr - get sub-string in a vector from a string
+* @param[I]: str (string)
+* @param[I]: sep (delimiter)
+* @param[O]: subStrs (sub strings)
+* @return  : none
+* @note    :
+**/
+void StringUtil::GetSubStr(string str, string sep, vector<string> &subStrs)
+{
+    std::string::size_type pos1, pos2;
+    pos2 = str.find(sep);
+    pos1 = 0;
+    while (std::string::npos != pos2)
+    {
+        subStrs.push_back(str.substr(pos1, pos2 - pos1));
+
+        pos1 = pos2 + sep.size();
+        pos2 = str.find(sep, pos1);
+    }
+    if (pos1 != str.length()) subStrs.push_back(str.substr(pos1));
+} /* end of GetSubStr */
