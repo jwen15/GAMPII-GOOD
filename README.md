@@ -1,28 +1,27 @@
 # GAMP II - GOOD, version 2.0
-GAMP II - GOOD (Gnss Observations and prOducts Downloader) is a powerful and easy-to-use lightweight GNSS observations and product downloading toolkit, which is developed by the SASIN (SpAtial SurveyIng and Navigation) group at Shandong University of Science and Technology (SDUST). The current version is 1.8, which is more stable. Hence, we decide to make it available for global GNSS users, and we are convinced that more and more GNSS users will benefit from GAMP II - GOOD. The source codes of GAMP II - GOOD is now available at GitHub (https://github.com/zhouforme0318/GAMPII-GOOD). We dedicated to create a more powerful GNSS data downloading tool, which can allow every GNSSer to completely get rid of the trouble in GNSS data and product downloading.
+GAMP II - GOOD (Gnss Observations and prOducts Downloader) is a powerful and easy-to-use lightweight GNSS observations and product downloading toolkit, which is developed by the SASIN (SpAtial SurveyIng and Navigation) group at Shandong University of Science and Technology (SDUST). The current version is 2.0, which is more stable and powerful. Hence, we decide to make it available for global GNSS users, and we are convinced that more and more GNSS users will benefit from GAMP II - GOOD. The source codes of GAMP II - GOOD is now available at GitHub (https://github.com/zhouforme0318/GAMPII-GOOD). We dedicated to create a more powerful GNSS data downloading tool, which can help each GNSS user to get rid of the trouble as much as possible in GNSS data and product downloading.
 # Features
 Main feature of GAMP II - GOOD are various GNSS observations and products downloading, i.e., 
-- IGS observation (RINEX version 2.xx, short name 'd')
-- MGEX observation (RINEX version 3.xx, long name 'crx')
-- the union of IGS and MGEX (IGS + MGEX, while the priority of MGEX sites is higher) observation with respect to the site name
-- Curtin University of Technology (CUT) observation (RINEX version 3.xx, long name 'crx')
-- Geoscience Australia (GA) observation (RINEX version 3.xx, long name 'crx')
-- Hong Kong CORS observation (RINEX version 3.xx, long name 'crx')
-- NGS/NOAA CORS observation (RINEX version 2.xx, short name 'd')
-- EUREF Permanent Network (EPN) observation (RINEX version 3.xx, long name 'crx')
-- Plate Boundary Observatory (PBO) observation (RINEX version 2.xx, short name "d")
-- Plate Boundary Observatory (PBO) observation (RINEX version 3.xx, long name "crx")
-- Plate Boundary Observatory (PBO) observation (taking the union of pbo2 and pbo3 (pbo2 + pbo3), while the priority of pbo3 sites is higher)
-- various type of broadcast ephemeris in RINEX 3.XX and RINEX 4.xx format
-- various types of IGS, MGEX and other analysis center final/rapid/ultra-rapid/real-time precise orbit and precise clock (i.e., IGS final: "cod", "emr", "esa", "gfz", "grg", "igs", "jpl", "mit", "all", "cod+igs", "cod+gfz+igs", ...; MGEX final: "cod_m", "gfz_m", "grg_m", "whu_m", "all_m", "cod_m+gfz_m", "grg_m+whu_m", ...; rapid: "cod_r", "emr_r", "esa_r", "gfz_r", "igs_r"; ultra-rapid: "esa_u", "gfz_u", "igs_u", "whu_u"; real-time: "cnt")
-- various final/ultra-rapid earth rotation parameter
-- IGS weekly SINEX solution
-- CODE and/or MGEX differential code/signal bias (DCB/DSB)
-- various final/real-time code observable-specific signal bias (OSB)
-- global ionosphere map (GIM)
-- rate of TEC index (ROTI)
-- CODE and/or IGS tropospheric product
-- ANTEX format antenna phase center correction  
+- IGS daily, hourly, and high-rate observations with short file name (RINEX version 2.xx)
+- MGEX daily, hourly, and high-rate observations with long file name (RINEX version 3.xx)
+- IGS + MGEX (taking the union of IGS and MGEX, while MGEX is preferred) daily, hourly, and high-rate observations
+- Curtin University of Technology (CUT) daily observations with long file name (RINEX v3.xx)
+- Geoscience Australia (GA) daily, hourly, and high-rate observations with long file name (RINEX v3.xx)
+- Hong Kong CORS 30-s, 5-s, and 1-s observations with long file name (RINEX version v3.xx)
+- NGS/NOAA CORS daily observations with short file name (RINEX v2.xx)
+- EUREF Permanent Network (EPN) observations (long file name in RINEX v3.xx and short file name in RINEX v2.xx)
+- Plate Boundary Observatory (PBO) observations (long file name in RINEX v3.xx and short file name in RINEX v2.xx)
+- Various types of broadcast ephemeris, i.e., GPS- and GLONASS-only in RINEX v2.xx, mixed types in RINEX v3.xx and v4.xx for multiple-GNSS
+- Various types of IGS, MGEX, and other analysis center (AC) final, rapid, and ultra-rapid precise orbit and clock products, CNES real-time orbit and clock products in offline file format
+- Various types of IGS final and ultra-rapid earth rotation/orientation parameter (ERP/EOP)
+- ORBEX (ORBit EXchange format) products from five institutions, i.e., CODE, GFZ, GRG, WHU, and CNES
+- GPS and GLONASS differential code bias (DCB) products from CODE and multi-GNSS differential signal bias (DSB) products from CAS
+- Code observable-specific signal bias (OSB) products from six institutions, i.e., CAS, CODE, GFZ, GRG, WHU, and CNES
+- IGS weekly SINEX solutions
+- Various types of final, rapid, hourly rapid, 15-min rapid, 1-day and 2-day predicted global ionosphere map (GIM) products
+- Rate of TEC index (ROTI) products
+- CODE and IGS final tropospheric products
+- IGS ANTEX format antenna phase center corrections  
 But it is not limited to these, users can use the source code to expand its functionalities according to their needs.
 # Version
 - Vers. 1.0  
