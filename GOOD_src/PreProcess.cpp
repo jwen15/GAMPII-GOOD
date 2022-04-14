@@ -131,6 +131,7 @@ bool PreProcess::ReadCfgFile(const char *cfgFile, prcopt_t *popt, ftpopt_t *fopt
     StringUtil str;
     TimeUtil tu;
     char *p, sline[MAXCHARS] = { '\0' }, tmpLine[MAXCHARS] = { '\0' };
+    char sep = (char)FILEPATHSEP;
     bool debug = false;
     int j = 0;
     gtime_t tt = { 0 };
@@ -152,167 +153,112 @@ bool PreProcess::ReadCfgFile(const char *cfgFile, prcopt_t *popt, ftpopt_t *fopt
         }
         else if (strstr(sline, "obsDir"))             /* the sub-directory of RINEX format observation files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'obsDir         = 0  obs', indicating 'obsDir         = D:\data\obs' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->obsDir, tmpDir);
-            }
-            else strcpy(popt->obsDir, tmpLine);  /* the full path should be given, i.e., 'obsDir         = 0  D:\data\obs' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->obsDir, tmpDir);
             if (debug) cout << "* obsDir = " << popt->obsDir << endl;
         }
         else if (strstr(sline, "navDir"))             /* the sub-directory of RINEX format broadcast ephemeris files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'navDir         = 0  nav', indicating 'navDir         = D:\data\nav' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->navDir, tmpDir);
-            }
-            else strcpy(popt->navDir, tmpLine);  /* the full path should be given, i.e., 'navDir         = 0  D:\data\nav' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->navDir, tmpDir);
             if (debug) cout << "* navDir = " << popt->navDir << endl;
         }
         else if (strstr(sline, "orbDir"))             /* the sub-directory of SP3 format precise ephemeris files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'orbDir         = 0  orb', indicating 'orbDir         = D:\data\orb' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->orbDir, tmpDir);
-            }
-            else strcpy(popt->orbDir, tmpLine);  /* the full path should be given, i.e., 'orbDir         = 0  D:\data\orb' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->orbDir, tmpDir);
             if (debug) cout << "* orbDir = " << popt->orbDir << endl;
         }
         else if (strstr(sline, "clkDir"))             /* the sub-directory of RINEX format precise clock files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'clkDir         = 0  clk', indicating 'clkDir         = D:\data\clk' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->clkDir, tmpDir);
-            }
-            else strcpy(popt->clkDir, tmpLine);  /* the full path should be given, i.e., 'clkDir         = 0  D:\data\clk' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->clkDir, tmpDir);
             if (debug) cout << "* clkDir = " << popt->clkDir << endl;
         }
         else if (strstr(sline, "eopDir"))             /* the sub-directory of earth rotation/orientation parameter (EOP) files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'eopDir         = 0  eop', indicating 'eopDir         = D:\data\eop' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->eopDir, tmpDir);
-            }
-            else strcpy(popt->eopDir, tmpLine);  /* the full path should be given, i.e., 'eopDir         = 0  D:\data\eop' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->eopDir, tmpDir);
             if (debug) cout << "* eopDir = " << popt->eopDir << endl;
         }
         else if (strstr(sline, "obxDir"))             /* the sub-directory of MGEX final/rapid and/or CNES real-time ORBEX (ORBit EXchange format) files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'obxDir         = 0  obx', indicating 'obxDir         = D:\data\obx' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->obxDir, tmpDir);
-            }
-            else strcpy(popt->obxDir, tmpLine);  /* the full path should be given, i.e., 'obxDir         = 0  D:\data\obx' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->obxDir, tmpDir);
             if (debug) cout << "* obxDir = " << popt->obxDir << endl;
         }
         else if (strstr(sline, "biaDir"))             /* the directory of CODE and/or MGEX differential code bias (DCB) files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'biaDir         = 0  bia', indicating 'biaDir         = D:\data\bia' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->biaDir, tmpDir);
-            }
-            else strcpy(popt->biaDir, tmpLine);  /* the full path should be given, i.e., 'biaDir         = 0  D:\data\bia' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->biaDir, tmpDir);
             if (debug) cout << "* biaDir = " << popt->biaDir << endl;
         }
         else if (strstr(sline, "snxDir"))             /* the directory of SINEX format IGS weekly solution files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'snxDir         = 0  snx', indicating 'snxDir         = D:\data\snx' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->snxDir, tmpDir);
-            }
-            else strcpy(popt->snxDir, tmpLine);  /* the full path should be given, i.e., 'snxDir         = 0  D:\data\snx' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->snxDir, tmpDir);
             if (debug) cout << "* snxDir = " << popt->snxDir << endl;
         }
         else if (strstr(sline, "ionDir"))             /* the directory of CODE and/or IGS global ionosphere map (GIM) files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'ionDir         = 0  ion', indicating 'ionDir         = D:\data\ion' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->ionDir, tmpDir);
-            }
-            else strcpy(popt->ionDir, tmpLine);  /* the full path should be given, i.e., 'ionDir         = 0  D:\data\ion' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->ionDir, tmpDir);
             if (debug) cout << "* ionDir = " << popt->ionDir << endl;
         }
         else if (strstr(sline, "ztdDir"))             /* the directory of CODE and/or IGS tropospheric product files */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'ztdDir         = 0  ztd', indicating 'ztdDir         = D:\data\ztd' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->ztdDir, tmpDir);
-            }
-            else strcpy(popt->ztdDir, tmpLine);  /* the full path should be given, i.e., 'ztdDir         = 0  D:\data\ztd' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->ztdDir, tmpDir);
             if (debug) cout << "* ztdDir = " << popt->ztdDir << endl;
         }
         else if (strstr(sline, "tblDir"))             /* the directory of table files for processing */
         {
-            sscanf(p + 1, "%d %[^%]", &j, &tmpLine);  /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
+            sscanf(p + 1, "%[^%]", tmpLine);          /* %[^%] denotes regular expression, which means that using % as the end sign of the input string */
             str.TrimSpace4Char(tmpLine);
             str.CutFilePathSep(tmpLine);
-            if (j == 0)  /* If '0' is set, the full path will NOT be needed, i.e., 'tblDir         = 0  tbl', indicating 'tblDir         = D:\data\tbl' */
-            {
-                char tmpDir[MAXSTRPATH] = { '\0' };
-                char sep = (char)FILEPATHSEP;
-                sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
-                strcpy(popt->tblDir, tmpDir);
-            }
-            else strcpy(popt->tblDir, tmpLine);  /* the full path should be given, i.e., 'tblDir         = 0  D:\data\tbl' */
+            char tmpDir[MAXSTRPATH] = { '\0' };
+            sprintf(tmpDir, "%s%c%s", popt->mainDir, sep, tmpLine);
+            strcpy(popt->tblDir, tmpDir);
             if (debug) cout << "* tblDir = " << popt->tblDir << endl;
         }
         else if (strstr(sline, "3partyDir"))          /* (optional) the directory where third-party softwares (i.e., 'wget', 'gzip', 'crx2rnx' etc) are stored. This option is not needed if you have set the path or environment variable for them */

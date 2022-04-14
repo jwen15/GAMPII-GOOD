@@ -11,6 +11,7 @@
 *           2020/10/25      add VectorXd type for date (by Feng Zhou)
 *-----------------------------------------------------------------------------*/
 #include "Good.h"
+#include <math.h>
 #include "TimeUtil.h"
 
 

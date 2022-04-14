@@ -45,13 +45,6 @@ public:
     **/
     string yy2str(int yy);
 
-    /**
-    * @brief   : doy2str - convert from integer DOY to string DOY
-    * @param[I]: doy (day of year)
-    * @param[O]: none
-    * @return  : DOY in string format
-    * @note    :
-    **/
     string doy2str(int doy);
 
     /**
