@@ -13,7 +13,7 @@ int main(int argc, char * argv[])
 {
 #ifdef _WIN32  /* for Windows */
     StringUtil str;
-    //char cfgFile[1000] = "C:\\data\\gamp_GOOD.cfg";
+    //char cfgFile[1000] = "C:\\data\\gamp_GOOD_ref.cfg";
     char *cfgFile;
     if (argc == 1)
     {

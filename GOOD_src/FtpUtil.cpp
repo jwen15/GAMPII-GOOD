@@ -8494,23 +8494,58 @@ void FtpUtil::FtpDownload(const prcopt_t *popt, ftpopt_t *fopt)
         char cmdTmp[MAXCHARS] = { '\0' };
         char sep = (char)FILEPATHSEP;
 
+#ifdef _WIN32   /* for Windows */
         /* for wget */
-        sprintf(cmdTmp, "%s%c%s", fopt->dir3party, sep, "wget");
+        sprintf(cmdTmp, "%s%c%s", fopt->dir3party, sep, "wget.exe");
         str.TrimSpace4Char(cmdTmp);
         str.CutFilePathSep(cmdTmp);
-        strcpy(fopt->wgetFull, cmdTmp);
+        if (access(cmdTmp, 0) == 0) strcpy(fopt->wgetFull, cmdTmp);
+        else
+        {
+            cout << "*** WARNING(FtpUtil::FtpDownload): wget CANNOT be found, please check the setting of 3partyDir!" << endl;
+
+            return;
+        }
 
         /* for gzip */
-        sprintf(cmdTmp, "%s%c%s", fopt->dir3party, sep, "gzip");
+        sprintf(cmdTmp, "%s%c%s", fopt->dir3party, sep, "gzip.exe");
         str.TrimSpace4Char(cmdTmp);
         str.CutFilePathSep(cmdTmp);
-        strcpy(fopt->gzipFull, cmdTmp);
+        if (access(cmdTmp, 0) == 0) strcpy(fopt->gzipFull, cmdTmp);
+        else
+        {
+            cout << "*** WARNING(FtpUtil::FtpDownload): gzip CANNOT be found, please check the setting of 3partyDir!" << endl;
+
+            return;
+        }
+
+        /* for crx2rnx */
+        sprintf(cmdTmp, "%s%c%s", fopt->dir3party, sep, "crx2rnx.exe");
+        str.TrimSpace4Char(cmdTmp);
+        str.CutFilePathSep(cmdTmp);
+        if (access(cmdTmp, 0) == 0) strcpy(fopt->crx2rnxFull, cmdTmp);
+        else
+        {
+            cout << "*** WARNING(FtpUtil::FtpDownload): crx2rnx CANNOT be found, please check the setting of 3partyDir!" << endl;
+
+            return;
+        }
+#else           /* for Linux or Mac */
+        str.SetStr(fopt->wgetFull, "wget", 5);
+        str.SetStr(fopt->gzipFull, "gzip", 5);
 
         /* for crx2rnx */
         sprintf(cmdTmp, "%s%c%s", fopt->dir3party, sep, "crx2rnx");
         str.TrimSpace4Char(cmdTmp);
         str.CutFilePathSep(cmdTmp);
-        strcpy(fopt->crx2rnxFull, cmdTmp);
+        if (access(cmdTmp, 0) == 0) strcpy(fopt->crx2rnxFull, cmdTmp);
+        else
+        {
+            cout << "*** WARNING(FtpUtil::FtpDownload): crx2rnx CANNOT be found, please check the setting of 3partyDir!" << endl;
+
+            return;
+        }
+#endif
     }
     else  /* the path of third-party softwares is set in the environmental variable */
     {
