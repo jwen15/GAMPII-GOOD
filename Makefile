@@ -2,7 +2,7 @@
 # This makefile builds an executable file for
 # offline intertial sdk running under Linux
 #
-GAMP_DIR=.
+GAMP_DIR=./GOOD_src
 TARGET_DIR=.
 
 #get all cpp files in specified directories
